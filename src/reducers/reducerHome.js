@@ -1,8 +1,10 @@
 
-const reducer = (state, action) => {
+const reducerHome = (state, action) => {
 
     if (state === undefined) {
+        return {
 
+        };
     }
 
     switch (action.type) {
@@ -23,3 +25,5 @@ const reducer = (state, action) => {
     }
 
 }
+
+export default reducerHome;
