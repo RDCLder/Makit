@@ -1,24 +1,68 @@
 import React from 'react';
-import { Container, Row, Col, Modal } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import { connect } from 'react-redux';
+import Nothing from "./Nothing";
+import actionAddIngredient from '../actions/actionAddIngredient';
+import actionDeleteIngredient from '../actions/actionDeleteIngredient';
 import "../styles/Main.css";
 
 class Ingredients extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ingredients: []
+            source: this.props.source,
+            ingredients: this.props.ingredients
         };
     }
 
     render() {
-        return (
-            <Container className="ingredientsContainer">
-                <Row className="ingredientsRow">
-
-                </Row>
-            </Container>
-        );
+        if (this.state.ingredients.length > 0) {
+            return (
+                <Container className="ingredientsContainer">
+                    <Row className="justify-content-center">
+                        <h3>Ingredients</h3>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <h4>Image/Video</h4>
+                            <img src={this.state.source.link} id="sourceImage" alt="" />
+                        </Col>
+                        <Col>
+                            <h4>Ingredients List</h4>
+                            <Row>
+                                <Col><h5>Ingredient</h5></Col>
+                                <Col><h5>Probability</h5></Col>
+                            </Row>
+                            {this.state.ingredients.map(ingredient => {
+                                return <Row>
+                                    <Col>{ingredient.name}</Col>
+                                    <Col>{ingredient.value}</Col>
+                                </Row>
+                            })}
+                        </Col>
+                    </Row>
+                </Container>
+            );
+        } else {
+            return (
+                <Nothing />
+            );
+        }
     }
 }
 
-export default Ingredients;
+function mapStateToProps(state) {
+    return {
+        source: state.source,
+        ingredients: state.ingredients
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        eventAddIngredient: (ingredient) => dispatch(actionAddIngredient(ingredient)),
+        eventDeleteIngredient: (ingredient) => dispatch(actionDeleteIngredient(ingredient)),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Ingredients);

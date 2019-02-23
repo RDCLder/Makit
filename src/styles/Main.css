@@ -3,22 +3,50 @@
 *******************************************/
 
 /*--------------------------------------
-    BASE/HEADER/FOOTER
+    ALL
 ---------------------------------------*/
 
+.fas {
+    font-size: 30px;
+}
 
+a {
+    color: white;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.row {
+    color: white;
+    padding: 1%;
+}
+
+.col {
+    text-align: center;
+    /* border: solid blue; */
+}
+
+.test {
+    border: solid red;
+}
+
+/*--------------------------------------
+    BASE/HEADER/FOOTER
+---------------------------------------*/
 
 #baseContainer {
     background-image: linear-gradient(to right, linen, antiquewhite);
     color: linen;
-    padding-top: 50px;
+    padding-top: 10vh;
     width: 100%;
     height: 100%;
     min-height: 100vh;
 }
 
 #header, #footer {
-    position: absolute;
     background-image: linear-gradient(90deg, salmon, burlywood, orange);
     width: 100%;
     height: 8vh;
@@ -26,11 +54,20 @@
     z-index: 2;
 }
 
+#header {
+    position: fixed;
+}
+
+#footer {
+    position: fixed;
+}
+
 .headerTab {
-    /* height: 100%; */
+    height: 100%;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 2%;
+    /* border: solid red; */
 }
 
 .headerTab:nth-child(1) {
@@ -54,23 +91,23 @@
 ---------------------------------------*/
 
 #linkButton {
-	top: 12vh;
+	top: 14vh;
 }
 
 #ingredientsButton {
-	top: 27vh;
+	top: 29vh;
 }
 
 #recipesButton {
-	top: 42vh;
+	top: 44vh;
 }
 
 #locationsButton {
-	top: 57vh;
+	top: 59vh;
 }
 
 #resetButton {
-	top: 72vh;
+	top: 74vh;
 }
 
 .floatButton {
@@ -87,23 +124,6 @@
     z-index: 2;
 }
 
-/*--------------------------------------
-    OTHER
----------------------------------------*/
-
-.fas {
-    font-size: 30px;
-}
-
-a {
-    color: white;
-}
-
-a:hover {
-    color: black;
-    text-decoration: none;
-}
-
 /******************************************
     HOME COMPONENT
 *******************************************/
@@ -111,18 +131,13 @@ a:hover {
 .homeContainer {
     background-image: linear-gradient(90deg, lightsalmon, orange);
     height: auto;
-    width: 70vw; 
+    width: 75vw; 
     border-radius: 10px;
     margin-top: 15vh;
     /* margin: auto; */
     padding-top: 5vh;
     padding-bottom: 5vh;
-}
-
-.homeRow {
-    color: white;
-    padding: 1%;
-    /* border: solid red; */
+    box-shadow: 2px 2px 4px #999;
 }
 
 /*--------------------------------------
@@ -133,6 +148,10 @@ a:hover {
     width: 90%;
     border-radius: 10px;
     padding: 1%;
+}
+
+.submitLink {
+    margin: 1%;
 }
 
 .submitButton {
@@ -146,7 +165,6 @@ a:hover {
 }
 
 .submitButton:hover {
-    background-color: crimson;
     color: black;
     cursor: pointer;
 }
@@ -171,16 +189,29 @@ button:focus {
 .ingredientsContainer {
     background-image: linear-gradient(90deg, lightsalmon, orange);
     height: auto;
-    width: 70vw; 
+    width: 75vw; 
     border-radius: 10px;
-    margin-top: 15vh;
+    margin-top: 5vh;
+    margin-bottom: 15vh;
     padding-top: 5vh;
     padding-bottom: 5vh;
+    box-shadow: 2px 2px 4px #999;
 }
 
-.ingredientsRow {
-    color: white;
-    padding: 1%;
+#ingredientsImageRow, #ingredientsListRow {
+    border: solid red;
+}
+
+#sourceImage {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 2%;
+}
+
+#sourceVideo {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 2%;
 }
 
 /******************************************
@@ -190,16 +221,13 @@ button:focus {
 .recipesContainer {
     background-image: linear-gradient(90deg, lightsalmon, orange);
     height: auto;
-    width: 70vw; 
+    width: 75vw; 
     border-radius: 10px;
-    margin-top: 15vh;
+    margin-top: 5vh;
+    margin-bottom: 15vh;
     padding-top: 5vh;
     padding-bottom: 5vh;
-}
-
-.recipesRow {
-    color: white;
-    padding: 1%;
+    box-shadow: 2px 2px 4px #999;
 }
 
 /******************************************
@@ -209,14 +237,26 @@ button:focus {
 .locationsContainer {
     background-image: linear-gradient(90deg, lightsalmon, orange);
     height: auto;
-    width: 70vw; 
+    width: 75vw; 
     border-radius: 10px;
-    margin-top: 15vh;
+    margin-top: 5vh;
+    margin-bottom: 15vh;
     padding-top: 5vh;
     padding-bottom: 5vh;
+    box-shadow: 2px 2px 4px #999;
 }
 
-.locationsRow {
-    color: white;
-    padding: 1%;
+/******************************************
+    NOTHING COMPONENT
+*******************************************/
+
+.nothingContainer {
+    background-image: linear-gradient(90deg, lightsalmon, orange);
+    height: auto;
+    width: 50vw; 
+    border-radius: 10px;
+    margin-top: 25vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    box-shadow: 2px 2px 4px #999;
 }

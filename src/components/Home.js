@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Row, Col, Modal } from "react-bootstrap";
+import { Container, Row} from "react-bootstrap";
+import { connect } from 'react-redux';
+import actionSearchResults from "../actions/actionSearchResults";
 import "../styles/Main.css";
 import Clarifai from "clarifai";
 
@@ -11,7 +13,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ''
+            value: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitImage = this.handleSubmitImage.bind(this);
@@ -31,11 +33,20 @@ class Home extends React.Component {
                 return foodModel.predict(this.state.value);
             })
             .then(response => {
-                var concepts = response['outputs'][0]['data']['concepts'].filter((ingredient) => {
-                    return ingredient.value >= 0.9;
+                var concepts = response['outputs'][0]['data']['concepts'].filter(ingredient => {
+                    let unwanted = ["no person", "breakfast", "lunch", "dinner", "unhealthy", "ready",
+                        "nutrition", "food", "delicious", "cooking"
+                    ];
+                    return ingredient.value >= 0.9 && !unwanted.includes(ingredient.name);
                 });
-                console.log(concepts);
-                // dispatch()
+                let source = {
+                    type: "image",
+                    link: this.state.value
+                };
+                this.props.eventSearchResults(source, concepts);
+            })
+            .then(() => {
+                this.props.history.push("/ingredients");
             })
     }
 
@@ -55,6 +66,20 @@ class Home extends React.Component {
                         console.log(' ' + concept['name'] + ' ' + concept['value']);
                     });
                 });
+                frames = frames.filter(ingredient => {
+                    let unwanted = ["no person", "breakfast", "lunch", "dinner", "unhealthy", "ready",
+                        "nutrition", "food", "delicious", "cooking"
+                    ];
+                    return ingredient.value >= 0.9 && !unwanted.includes(ingredient.name);
+                })
+                let source = {
+                    type: "video",
+                    link: this.state.value
+                };
+                this.props.eventSearchResults(source, frames);
+            })
+            .then(() => {
+                this.props.history.push("/ingredients");
             })
             .catch(error => {
                 console.log('Error status code: ' + error.data['status']['code']);
@@ -68,29 +93,46 @@ class Home extends React.Component {
     render() {
         return (
             <Container className="homeContainer">
-                <Row className="homeRow justify-content-center" id="topRow">
+                <Row className="row justify-content-center" id="topRow">
                     <h3>Image/Video Link</h3>
                 </Row>
-                <Row className="homeRow justify-content-center">
+                <Row className="row justify-content-center">
                     Give me a direct link to a file on the web.
                 </Row>
-                <form id="linkForm" onSubmit={this.handleSubmitImage}>
-                    <Row className="homeRow justify-content-center">
-                        <input type="text" value={this.state.value}
-                            onChange={this.handleChange}
-                            placeholder="Image/Video Link"
-                            id="inputLink"
-                        />
-                    </Row>
-                    <Row className="homeRow justify-content-center">
-                        <button type="submit" className="submitButton">IMAGE</button>
-                        <button type="submit" className="submitButton"
-                            onClick={this.handleSubmitVideo}>VIDEO</button>
-                    </Row>
-                </form>
+                <Row className="row justify-content-center">
+                    <input type="text" value={this.state.value}
+                        onChange={this.handleChange}
+                        placeholder="Image/Video Link"
+                        id="inputLink" />
+                </Row>
+                <Row className="row justify-content-center">
+                    {/* <Link onClick={this.handleSubmitImage} className="submitLink"> */}
+                    <button className="submitButton" onClick={this.handleSubmitImage}>
+                        IMAGE
+                    </button>
+                    {/* </Link> */}
+                    {/* <Link onClick={this.handleSubmitVideo} className="submitLink"> */}
+                    <button className="submitButton" onClick={this.handleSubmitVideo}>
+                        VIDEO
+                    </button>
+                    {/* </Link> */}
+                </Row>
             </Container>
         );
     }
 }
 
-export default Home;
+function mapStateToProps(state) {
+    return {
+        source: state.source,
+        ingredients: state.ingredients
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        eventSearchResults: (source, ingredients) => dispatch(actionSearchResults(source, ingredients))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
