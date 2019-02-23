@@ -27,17 +27,17 @@ const reducerHome = (state, action) => {
             return {
                 ...state,
                 ingredients: [
-                    action.ingredient,
                     ...state.ingredients,
+                    action.ingredient
                 ]
             };
         case "DELETE_INGREDIENT":
-            let index = state.ingredients.indexOf(action.ingredient);
+            let newIngredients = [...state.ingredients];
+            let index = newIngredients.indexOf(action.ingredient);
+            // newIngredients.splice(index, 1);
             return {
                 ...state,
-                ingredients: [
-                    ...state.ingredients.splice(index, 1)
-                ]
+                ingredients: newIngredients
             };
         case "RESET":
             return {

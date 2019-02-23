@@ -32,11 +32,18 @@ class Ingredients extends React.Component {
                             <Row>
                                 <Col><h5>Ingredient</h5></Col>
                                 <Col><h5>Probability</h5></Col>
+                                <Col><h5>Option</h5></Col>
                             </Row>
                             {this.state.ingredients.map(ingredient => {
-                                return <Row>
-                                    <Col>{ingredient.name}</Col>
-                                    <Col>{ingredient.value}</Col>
+                                return <Row key={ingredient.id}>
+                                    <Col className="my-auto">{ingredient.name}</Col>
+                                    <Col className="my-auto">{ingredient.value}</Col>
+                                    <Col className="my-auto">
+                                        <button onClick={() => this.props.eventDeleteIngredient(ingredient)}
+                                            className="deleteButton">
+                                            DELETE
+                                        </button>
+                                    </Col>
                                 </Row>
                             })}
                         </Col>
@@ -61,7 +68,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         eventAddIngredient: (ingredient) => dispatch(actionAddIngredient(ingredient)),
-        eventDeleteIngredient: (ingredient) => dispatch(actionDeleteIngredient(ingredient)),
+        eventDeleteIngredient: (ingredient) => dispatch(actionDeleteIngredient(ingredient))
     };
 }
 

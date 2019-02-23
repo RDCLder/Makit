@@ -214,6 +214,21 @@ button:focus {
     margin-top: 2%;
 }
 
+.deleteButton {
+    height: 8vh;
+    width: 100%;
+    margin: auto;
+    background-color: orangered;
+    color: white;
+    border: orangered;
+    border-radius: 10px;
+}
+
+.deleteButton:hover {
+    color: black;
+    cursor: pointer;
+}
+
 /******************************************
     RECIPES COMPONENT
 *******************************************/
