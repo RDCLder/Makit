@@ -18,14 +18,22 @@ class Ingredients extends React.Component {
         };
     }
 
-    addIngredient(ingredient) {
+    changeIngredientName(ingredient) {
         this.setState({
             ...this.state,
             addIngredient: {
                 name: ingredient.target.value,
                 value: "Added"
             }
-        })
+        });
+    }
+
+    handleSubmitIngredient(ingredientName) {
+        if (ingredientName !== "") {
+            this.props.eventAddIngredient(this.state.addIngredient);
+        } else {
+            alert("The ingredient name can't be empty!");
+        }
     }
 
     handleSubmitRecipe(ingredient) {
@@ -81,11 +89,11 @@ class Ingredients extends React.Component {
                                 <input type="text"
                                     placeholder="Name"
                                     id="addIngredientInput"
-                                    onChange={(e) => this.addIngredient(e)} />
+                                    onChange={(e) => this.changeIngredientName(e)} />
                             </Col>
                             <Col className="my-auto">Added</Col>
                             <Col className="my-auto">
-                                <button onClick={() => this.props.eventAddIngredient(this.state.addIngredient)}
+                                <button onClick={() => this.handleSubmitIngredient(this.state.addIngredient.name)}
                                     className="ingredientsOption">
                                     <i className="fas fa-plus"></i>
                                 </button>
