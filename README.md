@@ -1,4 +1,4 @@
-# Makit (Coming Soon)
+# Makit
 
 ## Demo (Coming Soon)
 
@@ -6,9 +6,7 @@ Check back by the first week of March.
 
 ## General
 
-Have you ever seen a food post on instagram and felt a sudden craving for it?  Have you ever seen a dish on TV and wondered how you could make that?  With Makit, you can find out how!
-
-Makit is a web app that takes an image or video of food and returns a breakdown of the ingredients used, the nutiriton information, recipes for making it or something similar, and nearby restaurants that offer it.  Your next culinary adventure is just one click away!
+Have you ever seen a food post on instagram and felt a sudden craving for it?  Have you ever seen a dish on TV and wondered how you could make that?  With Makit, you can find out how!  Makit is a web app that takes an image or video of food and returns a breakdown of the ingredients used, recipes for those ingredients, and nearby stores or restaurants that offer them.  Your next culinary adventure is just one click away!
 
 ## Features
 
@@ -23,12 +21,14 @@ Makit is a web app that takes an image or video of food and returns a breakdown 
 - **Recipe Search**
     - Using the ingredients found, Makit will make its best guess and return a list of potential recipes.
 
-## Technologies
+## Tools & Technologies
 
 - **Frontend**
     - React & Redux
     - HTML, CSS, & React-Bootstrap
 
 - **Other**
-    - Heroku
+    - [Clarifai API](https://clarifai.com/developer/guide/)
+    - [Edamam API](https://developer.edamam.com/edamam-docs-recipe-api)
+    - [Google Maps API (coming soon)](https://developers.google.com/maps/documentation/)
     - Git & GitHub

@@ -106,7 +106,7 @@ class Ingredients extends React.Component {
                                 <Col className="my-auto">
                                     <button onClick={() => this.handleSubmitRecipe(ingredient)}
                                         className="ingredientsOption">
-                                        <i className="fas fa-search"></i>
+                                        <i className="fas fa-book-open"></i>
                                     </button>
                                     <button onClick={() => this.props.eventDeleteIngredient(ingredient)}
                                         className="ingredientsDelete">
