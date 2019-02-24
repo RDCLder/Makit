@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row} from "react-bootstrap";
 import { connect } from 'react-redux';
-import actionSearchResults from "../actions/actionSearchResults";
+import actionIngredientResults from "../actions/actionIngredientResults";
 import "../styles/Main.css";
 import Clarifai from "clarifai";
 
@@ -24,8 +24,7 @@ class Home extends React.Component {
         this.setState({ value: event.target.value });
     }
 
-    handleSubmitImage(event) {
-        event.preventDefault();
+    handleSubmitImage() {
 
         // Using Clarifai API
         app.models.initModel({ id: Clarifai.FOOD_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40" })
@@ -43,15 +42,14 @@ class Home extends React.Component {
                     type: "image",
                     link: this.state.value
                 };
-                this.props.eventSearchResults(source, concepts);
+                this.props.eventIngredientResults(source, concepts);
             })
             .then(() => {
                 this.props.history.push("/ingredients");
             })
     }
 
-    handleSubmitVideo(event) {
-        event.preventDefault();
+    handleSubmitVideo() {
 
         // Using Clarifai API
         app.models.predict(
@@ -97,7 +95,7 @@ class Home extends React.Component {
                     <h3>Image/Video Link</h3>
                 </Row>
                 <Row className="row justify-content-center">
-                    Give me a direct link to a file on the web.
+                    <h5>Give me an image or video of food, and I'll guess its ingredients!</h5>
                 </Row>
                 <Row className="row justify-content-center">
                     <input type="text" value={this.state.value}
@@ -106,16 +104,12 @@ class Home extends React.Component {
                         id="inputLink" />
                 </Row>
                 <Row className="row justify-content-center">
-                    {/* <Link onClick={this.handleSubmitImage} className="submitLink"> */}
                     <button className="submitButton" onClick={this.handleSubmitImage}>
                         IMAGE
                     </button>
-                    {/* </Link> */}
-                    {/* <Link onClick={this.handleSubmitVideo} className="submitLink"> */}
                     <button className="submitButton" onClick={this.handleSubmitVideo}>
                         VIDEO
                     </button>
-                    {/* </Link> */}
                 </Row>
             </Container>
         );
@@ -131,7 +125,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        eventSearchResults: (source, ingredients) => dispatch(actionSearchResults(source, ingredients))
+        eventIngredientResults: (source, ingredients) => dispatch(actionIngredientResults(source, ingredients))
     }
 }
 

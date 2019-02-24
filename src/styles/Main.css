@@ -52,6 +52,7 @@ a:hover {
     height: 8vh;
     color: white;
     z-index: 2;
+    padding: 0;
 }
 
 #header {
@@ -67,7 +68,6 @@ a:hover {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 2%;
-    /* border: solid red; */
 }
 
 .headerTab:nth-child(1) {
@@ -82,8 +82,9 @@ a:hover {
     bottom: 0;
 }
 
-#footer > h4 {
+#footer > h4, .headerTab > h4 {
     margin: auto;
+    /* border: solid red; */
 }
 
 /*--------------------------------------
@@ -198,10 +199,6 @@ button:focus {
     box-shadow: 2px 2px 4px #999;
 }
 
-#ingredientsImageRow, #ingredientsListRow {
-    border: solid red;
-}
-
 #sourceImage {
     width: 100%;
     border-radius: 10px;
@@ -214,9 +211,22 @@ button:focus {
     margin-top: 2%;
 }
 
-.deleteButton {
+.ingredientsButton {
+    background-color: orangered;
+    color: white;
+    width: 20vw;
+    border-radius: 10px;
+    border: solid orangered;
+}
+
+.ingredientsButton:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.ingredientsOption {
     height: 8vh;
-    width: 100%;
+    width: 40%;
     margin: auto;
     background-color: orangered;
     color: white;
@@ -224,9 +234,27 @@ button:focus {
     border-radius: 10px;
 }
 
-.deleteButton:hover {
+.ingredientsDelete {
+    height: 8vh;
+    width: 40%;
+    margin: auto;
+    margin-left: 5%;
+    background-color: red;
+    color: white;
+    border: red;
+    border-radius: 10px;
+}
+
+.ingredientsOption:hover, .ingredientsDelete:hover {
     color: black;
     cursor: pointer;
+}
+
+#addIngredientInput {
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5%;
 }
 
 /******************************************
@@ -243,6 +271,57 @@ button:focus {
     padding-top: 5vh;
     padding-bottom: 5vh;
     box-shadow: 2px 2px 4px #999;
+}
+
+.cardImage, .imgOverlay {
+    height: auto;
+    min-height: 50vh;
+}
+
+.imgOverlay > .row {
+    padding-top: 1%;
+    padding-bottom: 3%;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.cardIngredients {
+    max-height: 27vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.imgOverlay:hover {
+    background-color: black;
+    opacity: 0.8;
+}
+
+.cardText {
+    visibility: hidden;
+}
+
+.imgOverlay:hover > .cardText, .imgOverlay:hover > .row > .cardText {
+    visibility: visible;
+}
+
+.imgOverlay:hover > .row > div > .cardText {
+    visibility: visible;
+}
+
+.cardFooter {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+p {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+.cardFooter > p {
+    width: auto;
 }
 
 /******************************************
@@ -268,10 +347,25 @@ button:focus {
 .nothingContainer {
     background-image: linear-gradient(90deg, lightsalmon, orange);
     height: auto;
-    width: 50vw; 
+    width: 50vw;
+    color: white;
+    text-align: center;
     border-radius: 10px;
-    margin-top: 25vh;
+    margin-top: 20vh;
     padding-top: 5vh;
     padding-bottom: 5vh;
     box-shadow: 2px 2px 4px #999;
+}
+
+.nothingButton {
+    background-color: orangered;
+    color: white;
+    width: 20vw;
+    border-radius: 10px;
+    border: solid orangered;
+}
+
+.nothingButton:hover {
+    color: black;
+    cursor: pointer;
 }

@@ -8,13 +8,16 @@ const reducerHome = (state, action) => {
                 link: ""
             },
             ingredients: [],
-            recipes: [],
+            recipes: {
+                ingredient: "",
+                recipes: []
+            },
             locations: []
         };
     }
 
     switch (action.type) {
-        case "SEARCH_RESULTS":
+        case "INGREDIENT_RESULTS":
             return {
                 ...state,
                 source: {
@@ -27,17 +30,25 @@ const reducerHome = (state, action) => {
             return {
                 ...state,
                 ingredients: [
-                    ...state.ingredients,
-                    action.ingredient
+                    action.ingredient,
+                    ...state.ingredients
                 ]
             };
         case "DELETE_INGREDIENT":
-            let newIngredients = [...state.ingredients];
+            let newIngredients = state.ingredients.slice();
             let index = newIngredients.indexOf(action.ingredient);
-            // newIngredients.splice(index, 1);
+            newIngredients.splice(index, 1);
             return {
                 ...state,
                 ingredients: newIngredients
+                // ingredients: state.ingredients.filter(ingredient => {
+                //     return ingredient.id !== action.ingredient.id;
+                // })
+            };
+        case "RECIPE_RESULTS":
+            return {
+                ...state,
+                recipes: action.data
             };
         case "RESET":
             return {
@@ -46,7 +57,10 @@ const reducerHome = (state, action) => {
                     link: ""
                 },
                 ingredients: [],
-                recipes: [],
+                recipes: {
+                    ingredient: "",
+                    recipes: []
+                },
                 locations: []
             };
         default:

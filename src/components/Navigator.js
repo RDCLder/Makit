@@ -48,7 +48,7 @@ class Navigator extends React.Component {
                 {/******* LINK BUTTON ********/}
                 <Link to="/">
                     <button type="button" className="btn floatButton" id="linkButton">
-                        <i className="fas fa-link"></i>
+                        <i className="fas fa-camera"></i>
                     </button>
                 </Link>
 
@@ -62,7 +62,7 @@ class Navigator extends React.Component {
                 {/******* RECIPES BUTTON ********/}
                 <Link to="/recipes">
                     <button type="button" className="btn floatButton" id="recipesButton">
-                        <i className="fas fa-utensils"></i>
+                        <i className="fas fa-book-open"></i>
                     </button>
                 </Link>
 

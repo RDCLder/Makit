@@ -8,18 +8,21 @@ class Nothing extends React.Component {
     render() {
         return (
             <Container className="nothingContainer">
+                <h3>There's Nothing Here!</h3>
+                <Row></Row>
                 <Row className="justify-content-center">
-                    <h3>There's Nothing Here!</h3>
+                    <Link to="/"><button className="nothingButton">
+                        <h4>Add Image/Video</h4>
+                    </button></Link>
                 </Row>
                 <Row className="justify-content-center">
-                    <Link to="/">
-                        <h4>Click Here First</h4>
-                    </Link>
+                    <Link to="/ingredients"><button className="nothingButton">
+                        <h4>Add Ingredient</h4>
+                    </button></Link>
                 </Row>
-            </Container>
+            </Container >
         )
     }
-
 }
 
 export default Nothing;
