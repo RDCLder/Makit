@@ -1,13 +1,13 @@
 {
-  "main.css": "/makit/static/css/main.dfe62f1c.chunk.css",
-  "main.js": "/makit/static/js/main.804e1ac8.chunk.js",
-  "main.js.map": "/makit/static/js/main.804e1ac8.chunk.js.map",
-  "runtime~main.js": "/makit/static/js/runtime~main.80c7256e.js",
-  "runtime~main.js.map": "/makit/static/js/runtime~main.80c7256e.js.map",
-  "static/js/2.47807f7d.chunk.js": "/makit/static/js/2.47807f7d.chunk.js",
-  "static/js/2.47807f7d.chunk.js.map": "/makit/static/js/2.47807f7d.chunk.js.map",
-  "index.html": "/makit/index.html",
-  "precache-manifest.2b57f05ebaad93ee1892ba395537e7a2.js": "/makit/precache-manifest.2b57f05ebaad93ee1892ba395537e7a2.js",
-  "service-worker.js": "/makit/service-worker.js",
-  "static/css/main.dfe62f1c.chunk.css.map": "/makit/static/css/main.dfe62f1c.chunk.css.map"
+  "main.css": "/Makit/static/css/main.dfe62f1c.chunk.css",
+  "main.js": "/Makit/static/js/main.804e1ac8.chunk.js",
+  "main.js.map": "/Makit/static/js/main.804e1ac8.chunk.js.map",
+  "runtime~main.js": "/Makit/static/js/runtime~main.afeb69b4.js",
+  "runtime~main.js.map": "/Makit/static/js/runtime~main.afeb69b4.js.map",
+  "static/js/2.e9f575e5.chunk.js": "/Makit/static/js/2.e9f575e5.chunk.js",
+  "static/js/2.e9f575e5.chunk.js.map": "/Makit/static/js/2.e9f575e5.chunk.js.map",
+  "index.html": "/Makit/index.html",
+  "precache-manifest.aa26182b5024fb53fa03e911ed396a7e.js": "/Makit/precache-manifest.aa26182b5024fb53fa03e911ed396a7e.js",
+  "service-worker.js": "/Makit/service-worker.js",
+  "static/css/main.dfe62f1c.chunk.css.map": "/Makit/static/css/main.dfe62f1c.chunk.css.map"
 }
