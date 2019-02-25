@@ -1,4 +1,4 @@
-# Makit
+# [Makit](https://makit-app.herokuapp.com/)
 
 ## Demo (Coming Soon)
 
