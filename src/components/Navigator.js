@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import actionReset from "../actions/actionReset";
@@ -12,37 +12,47 @@ class Navigator extends React.Component {
             <div>
 
                 <Row id="header">
-                    <Link to="/" className="headerTab">
+                    <Col xs={2}>
+                        {/* <Link to="/" className="link"> */}
                         <h2>MAKIT</h2>
-                    </Link>
-                    <Link to="/" className="headerTab">
-                        <h4>Link</h4>
-                    </Link>
-                    <div className="headerTab">
-                        <h4>|</h4>
-                    </div>
-                    <Link to="/ingredients" className="headerTab">
-                        <h4>Ingredients</h4>
-                    </Link>
-                    <div className="headerTab">
-                        <h4>|</h4>
-                    </div>
-                    <Link to="/recipes" className="headerTab">
-                        <h4>Recipes</h4>
-                    </Link>
-                    <div className="headerTab">
-                        <h4>|</h4>
-                    </div>
-                    <Link to="/locations" className="headerTab">
-                        <h4>Locations</h4>
-                    </Link>
-                    <div className="headerTab">
-                        <h4>|</h4>
-                    </div>
-                    <Link to="/" className="headerTab" onClick={this.props.eventReset}>
-                        {/* <Link to="/" className="headerTab"> */}
-                        <h4>Reset</h4>
-                    </Link>
+                        {/* </Link> */}
+                    </Col>
+                    <Col>
+                        <h4>
+                            <Link to="/">
+                                Link
+                            </Link>
+                        </h4>
+                    </Col>
+                    <Col>
+                        <h4>
+                            <Link to="/ingredients">
+                                Ingredients
+                        </Link>
+                        </h4>
+                    </Col>
+                    <Col>
+                        <h4>
+                            <Link to="/recipes">
+                                Recipes
+                        </Link>
+                        </h4>
+                    </Col>
+                    <Col>
+                        <h4>
+                            <Link to="/locations">
+                                Locations
+                        </Link>
+                        </h4>
+                    </Col>
+                    <Col>
+                        <h4>
+                            <Link to="/" onClick={this.props.eventReset}>
+                                Reset
+                        </Link>
+                        </h4>
+                    </Col>
+                    <Col xs={2}></Col>
                 </Row>
 
                 {/******* LINK BUTTON ********/}
